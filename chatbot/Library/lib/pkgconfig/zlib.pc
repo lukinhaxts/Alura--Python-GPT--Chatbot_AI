@@ -1,0 +1,13 @@
+prefix=C:/Programacao/Alura/Formacao--OpenAI_Python/Alura--Python-GPT--Chatbot_AI/chatbot/Library
+exec_prefix=C:/Programacao/Alura/Formacao--OpenAI_Python/Alura--Python-GPT--Chatbot_AI/chatbot/Library
+libdir=C:/Programacao/Alura/Formacao--OpenAI_Python/Alura--Python-GPT--Chatbot_AI/chatbot/Library/lib
+sharedlibdir=C:/Programacao/Alura/Formacao--OpenAI_Python/Alura--Python-GPT--Chatbot_AI/chatbot/Library/lib
+includedir=C:/Programacao/Alura/Formacao--OpenAI_Python/Alura--Python-GPT--Chatbot_AI/chatbot/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
