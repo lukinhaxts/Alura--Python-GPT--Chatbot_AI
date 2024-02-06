@@ -5,6 +5,7 @@ from time import sleep
 from helpers import *
 from selecionar_persona import *
 import json
+from tools_ecomart import *
 
 load_dotenv()
 
@@ -75,6 +76,7 @@ def criar_assistente(file_ids=[]):
                     Além disso, acesse os arquivos associados a você e a thread para responder as perguntas.
                 """,
                 model = modelo,
+                tools = minhas_tools,
                 file_ids = file_ids
         )
         return assistente
