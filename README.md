@@ -1,8 +1,6 @@
 # Python e GPT: crie seu chatbot com IA (Implementação de curso da Alura)
 
-## ⚙️ Configuração do Ambiente
-
-### Criando o Ambiente Virtual e Instalando Bibliotecas Necessárias
+## ⚙️ Criando o Ambiente Virtual e Instalando Bibliotecas Necessárias
 
 **Windows - Anaconda:**
 ```bash
