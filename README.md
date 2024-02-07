@@ -19,7 +19,7 @@ chatbot\Scripts\activate
 pip install requirements.txt
 ```
 
-## Inserindo sua API Key
+## 🔑 Inserindo sua API Key
 
 Após criar sua _API Key_ na plataforma da OpenAI, crie um arquivo chamado ```.env``` na pasta raíz e insira sua _key_ no seguinte formato:
 
