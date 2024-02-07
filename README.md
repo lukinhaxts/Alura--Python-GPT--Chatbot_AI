@@ -1,47 +1,27 @@
-# OpenAI: Curso 2
+# Python e GPT: crie seu chatbot com IA (Implementação de curso da Alura)
 
 ## ⚙️ Configuração do Ambiente
 
-### Criando e Ativando o Ambiente Virtual
+### Criando o Ambiente Virtual e Instalando Bibliotecas Necessárias
 
 **Windows - Anaconda:**
 ```bash
-conda create chatbot python
+conda activate base
+conda create -p "./chatbot" python
+conda activate "./chatbot"
+pip install -r requirements.txt
 ```
 
 **Windows - Python Nativo:**
 ```bash
 python -m venv chatbot
-```
-
-**Mac/Linux:**
-```bash
-python3 -m venv chatbot
-```
-
-### Instalando bibliotecas necessárias
-
-**Windows - Anaconda:**
-```bash
-conda activate chatbot
-pip install requirements.txt
-```
-
-**Windows - Python Nativo:**
-```bash
 chatbot\Scripts\activate
 pip install requirements.txt
 ```
 
-**Mac/Linux:**
-```bash
-source chatbot/bin/activate
-pip install requirements.txt
-```
+## Inserindo sua API Key
 
-### Inserindo sua API Key
-
-Após criar sua API Key na plataforma da OpenAI, criar um arquivo chamado ```.env```, e inserir sua key no seguinte formato:
+Após criar sua _API Key_ na plataforma da OpenAI, crie um arquivo chamado ```.env``` na pasta raíz e insira sua _key_ no seguinte formato:
 
 ```
 OPENAI_API_KEY = "INSIRA SUA KEY"
