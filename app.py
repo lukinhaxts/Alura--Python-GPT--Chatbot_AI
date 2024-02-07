@@ -1,13 +1,11 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
 from time import sleep
-from helpers import *
 from selecionar_persona import *
-from selecionar_documento import *
 from assistente_ecomart import *
-from vision_ecomart import analisar_imagem
+from vision_ecomart import *
 import uuid
 
 load_dotenv()
