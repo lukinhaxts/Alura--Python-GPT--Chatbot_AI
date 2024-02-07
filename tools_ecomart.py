@@ -37,7 +37,6 @@ minhas_tools = [
 ]
 
 def validar_codigo_promocional(argumentos):
-
     codigo = argumentos.get("codigo")
     validade = argumentos.get("validade")
 

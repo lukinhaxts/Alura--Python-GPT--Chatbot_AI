@@ -10,7 +10,6 @@ cliente = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
 modelo = "gpt-4-vision-preview"
 
 def analisar_imagem(caminho_imagem):
-
     prompt = """
         Assuma que você é um assistente de chatbot e que provavelmente o usuário está enviado a foto de
         um produto. Faça uma análise dele, e se for um produto com defeito, emita um parecer. Assuma que você sabe e

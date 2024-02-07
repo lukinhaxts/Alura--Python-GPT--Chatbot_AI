@@ -48,5 +48,4 @@ def selecionar_contexto(mensagem_usuario):
     )
 
     contexto = resposta.choices[0].message.content.lower()
-
     return contexto
