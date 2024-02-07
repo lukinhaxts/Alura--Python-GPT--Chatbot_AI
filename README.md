@@ -1,8 +1,10 @@
 # Python e GPT: crie seu chatbot com IA (Implementação de curso da Alura)
 
-## ⚙️ Criando o Ambiente Virtual e Instalando Bibliotecas Necessárias
+## ⚙️ Configuração do Ambiente
 
-**Windows - Anaconda:**
+### Criando o Ambiente Virtual e Instalando Bibliotecas Necessárias
+
+**Windows (Anaconda):**
 ```bash
 conda activate base
 conda create -p "./chatbot" python
@@ -10,10 +12,17 @@ conda activate "./chatbot"
 pip install -r requirements.txt
 ```
 
-**Windows - Python Nativo:**
+**Windows (Python Nativo):**
 ```bash
 python -m venv chatbot
 chatbot\Scripts\activate
+pip install requirements.txt
+```
+
+**Mac/Linux:**
+```bash
+python3 -m venv curso_2_openai
+source curso_2_openai/bin/activate
 pip install requirements.txt
 ```
 
