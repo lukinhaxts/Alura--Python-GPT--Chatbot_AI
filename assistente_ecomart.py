@@ -11,7 +11,6 @@ load_dotenv()
 
 cliente = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 modelo = "gpt-4-1106-preview"
-contexto = carrega("dados/ecomart.txt")
 
 def criar_lista_ids():
 
@@ -58,6 +57,7 @@ def pegar_json():
     try:
         with open(filename, "r", encoding="utf-8") as file:
             data = json.load(file)
+
             return data
     except FileNotFoundError:
         print("Arquivo 'assistentes.json' não encontrado.")
@@ -66,7 +66,7 @@ def pegar_json():
 def criar_thread():
     return cliente.beta.threads.create()
 
-def criar_assistente(file_ids=[]):
+def criar_assistente(file_ids = []):
         
         assistente = cliente.beta.assistants.create(
                 name = "Atendente EcoMart",
@@ -79,4 +79,5 @@ def criar_assistente(file_ids=[]):
                 tools = minhas_tools,
                 file_ids = file_ids
         )
+
         return assistente

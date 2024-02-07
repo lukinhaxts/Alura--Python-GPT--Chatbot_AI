@@ -41,8 +41,8 @@ personas = {
 
 def selecionar_persona(mensagem_usuario):
     prompt_sistema = """
-    Faça uma análise da mensagem informada abaixo para identificar se o sentimento é: positivo, 
-    neutro ou negativo. Retorne apenas um dos três tipos de sentimentos informados como resposta.
+        Faça uma análise da mensagem informada abaixo para identificar se o sentimento é: positivo, 
+        neutro ou negativo. Retorne apenas um dos três tipos de sentimentos informados como resposta.
     """
 
     resposta = cliente.chat.completions.create(

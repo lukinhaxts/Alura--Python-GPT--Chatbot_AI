@@ -10,7 +10,7 @@ from assistente_ecomart import *
 
 load_dotenv()
 
-cliente = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+cliente = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
 modelo = "gpt-4"
 
 app = Flask(__name__)
@@ -20,6 +20,9 @@ assistente = pegar_json()
 thread_id = assistente["thread_id"]
 assistente_id = assistente["assistant_id"]
 file_ids = assistente["file_ids"]
+
+STATUS_COMPLETED = "completed"
+STATUS_REQUIRES_ACTION = "requires_action"
 
 def bot(prompt):
 
@@ -55,13 +58,37 @@ def bot(prompt):
                  assistant_id = assistente_id
             )
 
-            while run.status != "completed":
+            while run.status != STATUS_COMPLETED:
                 run = cliente.beta.threads.runs.retrieve(
                     thread_id = thread_id,
                     run_id = run.id
                 )
+
+                print(f"Status: {run.status}")
             
-            historico = list(cliente.beta.messages.list(thread_id = thread_id).data)
+                if run.status == STATUS_REQUIRES_ACTION:
+                    tools_acionadas = run.required_action.submit_tool_outputs.tool_calls
+                    respostas_tools_acionadas = []
+
+                    for tool in tools_acionadas:
+                        nome_funcao = tool.function.name
+                        funcao_escolhida = minhas_funcoes[nome_funcao]
+                        argumentos = json.loads(tool.function.arguments)
+                        print(argumentos)
+                        resposta_funcao = funcao_escolhida(argumentos)
+
+                        respostas_tools_acionadas.append({
+                            "tool_call_id": tool.id,
+                            "output": resposta_funcao
+                        })
+                    
+                    run = cliente.beta.threads.runs.submit_tool_outputs(
+                        thread_id = thread_id,
+                        run_id = run.id,
+                        tool_outputs = respostas_tools_acionadas
+                    )
+            
+            historico = list(cliente.beta.threads.messages.list(thread_id = thread_id).data)
             resposta = historico[0]
             return resposta
         

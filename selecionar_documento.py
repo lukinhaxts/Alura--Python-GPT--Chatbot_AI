@@ -19,10 +19,9 @@ def selecionar_documento(resposta_openai):
     elif "produtos" in resposta_openai:
         return dados_ecomart + "\n" + produtos_ecomart
     else:
-        return dados_ecomart
+        return dados_ecomart 
 
 def selecionar_contexto(mensagem_usuario):
-
     prompt_sistema = f"""
         A empresa EcoMart possui três documentos principais que detalham diferentes aspectos do negócio:
 
@@ -45,7 +44,7 @@ def selecionar_contexto(mensagem_usuario):
                 "content" : mensagem_usuario
             }
         ],
-        temperature=1
+        temperature = 1,
     )
 
     contexto = resposta.choices[0].message.content.lower()

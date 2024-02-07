@@ -6,11 +6,10 @@ from time import sleep
 from helpers import *
 from selecionar_persona import *
 from selecionar_documento import *
-from assistente_ecomart import *
 
 load_dotenv()
 
-cliente = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+cliente = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
 modelo = "gpt-4-1106-preview"
 
 minhas_tools = [
@@ -35,5 +34,22 @@ minhas_tools = [
             }
         }
     }
-
 ]
+
+def validar_codigo_promocional(argumentos):
+
+    codigo = argumentos.get("codigo")
+    validade = argumentos.get("validade")
+
+    return f"""
+        
+        # Formato de Resposta
+        
+        {codigo} com validade: {validade}. 
+        Ainda, diga se é válido ou não para o usuário.
+
+    """
+
+minhas_funcoes = {
+    "validar_codigo_promocional": validar_codigo_promocional,
+}
