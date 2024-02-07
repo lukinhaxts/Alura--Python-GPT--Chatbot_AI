@@ -4,14 +4,39 @@
 
 ### Criando e Ativando o Ambiente Virtual
 
-**Windows:**
+**Windows - Anaconda:**
+```bash
+conda create chatbot python
+```
+
+**Windows - Python Nativo:**
+```bash
+python -m venv chatbot
+```
+
+**Mac/Linux:**
+```bash
+python3 -m venv chatbot
+```
+
+### Instalando bibliotecas necessárias
+
+**Windows - Anaconda:**
+```bash
+conda activate chatbot
+pip install requirements.txt
+```
+
+**Windows - Python Nativo:**
 ```bash
 chatbot\Scripts\activate
+pip install requirements.txt
 ```
 
 **Mac/Linux:**
 ```bash
 source chatbot/bin/activate
+pip install requirements.txt
 ```
 
 ### Inserindo sua API Key
